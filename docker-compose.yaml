@@ -3,7 +3,6 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: frontend
     expose:
       - "80"
 
@@ -11,22 +10,20 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: django-backend
     ports:
-      - "8000:8000"
+      - "8001:8000"
     depends_on:
       - postgres
 
   postgres:
     image: postgres:16
-    container_name: postgres-db
     restart: always
     environment:
       POSTGRES_DB: testdb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -34,7 +31,6 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-    container_name: nginx
     ports:
       - "80:80"
     depends_on:
