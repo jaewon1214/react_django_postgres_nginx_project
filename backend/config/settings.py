@@ -96,13 +96,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'testdb',          # 데이터베이스 이름
+#         'USER': 'postgres',             # PostgreSQL 사용자
+#         'PASSWORD': 'postgres',      # 비밀번호
+#         'HOST': 'localhost',       # Docker가 같은 PC에서 실행 중이라면 localhost
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'testdb',          # 데이터베이스 이름
         'USER': 'postgres',             # PostgreSQL 사용자
         'PASSWORD': 'postgres',      # 비밀번호
-        'HOST': 'localhost',       # Docker가 같은 PC에서 실행 중이라면 localhost
+        'HOST': 'postgres',       # Docker가 같은 PC에서 실행 중이라면 localhost
         'PORT': '5432',
     }
 }

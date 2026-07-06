@@ -14,3 +14,8 @@ docker rm -f frontend
 docker rm -f postgres-db
 docker rm -f django-backend
 docker rm -f nginx
+
+docker compose down
+docker compose up -d
+
+docker compose up -d --build

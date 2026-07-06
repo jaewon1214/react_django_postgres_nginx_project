@@ -11,10 +11,15 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "8001:8000"
+      - "8002:8000"
     depends_on:
       - postgres
-
+    environment:
+      DB_NAME: testdb
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: postgres
+      DB_PORT: 5432
   postgres:
     image: postgres:16
     restart: always
@@ -23,7 +28,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -39,4 +44,3 @@ services:
 
 volumes:
   postgres_data:
-  jenkins_home:
